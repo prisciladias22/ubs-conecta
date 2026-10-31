@@ -1,0 +1,259 @@
+{
+  "name": "UBS Conecta IA - Atendimento Virtual",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Olá! 💚 Seja bem-vindo(a) ao UBS Conecta IA!\n\nSou o assistente virtual da UBS Maria José Ferreira, localizada no povoado Morro do Chupé.\n\nEstou aqui para ajudar você com informações sobre:\n\n* Horários de atendimento;\n* Consultas médicas e de enfermagem;\n* Vacinação;\n* Exames preventivos;\n* Serviços oferecidos pela UBS;\n* Farmácia básica.\n\nDigite sua dúvida e será um prazer ajudar!\n\n💚 UBS Maria José Ferreira. Cuidando de você e da nossa comunidade!\n",
+        "options": {
+          "inputPlaceholder": "Digite sua dúvida sobre os serviços da UBS...",
+          "subtitle": "Assistente virtual da UBS Maria José Ferreira. Informação, saúde e acolhimento para toda a comunidade. 💚",
+          "title": "UBS Conecta IA \n UBS Maria José Ferreira",
+          "customCss": ":root {\n  /* Cores institucionais */\n  --chat--color--primary: #0877B9;\n  --chat--color--primary-shade-50: #06669F;\n  --chat--color--secondary: #20A879;\n\n  /* Fundo e textos */\n  --chat--color-white: #FFFFFF;\n  --chat--color-light: #F0F7FA;\n  --chat--color-dark: #17364A;\n\n  /* Cabeçalho */\n  --chat--header--background: #0877B9;\n  --chat--header--color: #FFFFFF;\n\n  /* Mensagens */\n  --chat--message--bot--background: #EAF5F9;\n  --chat--message--bot--color: #17364A;\n  --chat--message--user--background: #0877B9;\n  --chat--message--user--color: #FFFFFF;\n\n  /* Formato */\n  --chat--border-radius: 12px;\n  --chat--window--width: 420px;\n  --chat--window--height: 650px;\n}",
+          "responseMode": "streaming"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7b51b9c3-9570-433e-a2dc-76055d7cbfda",
+      "name": "When chat message received",
+      "webhookId": "65d886a3-7411-4229-b7df-1b372d742443"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "# IDENTIDADE DO ASSISTENTE\n\nVocê é o **UBS Conecta IA**, assistente virtual de saúde da Unidade Básica de Saúde Maria José Ferreira, localizada no povoado Morro do Chupé, em São Raimundo das Mangabeiras, Maranhão.\n\nSua missão é facilitar a comunicação entre a população e a UBS, fornecendo informações confiáveis, orientações educativas e esclarecimentos sobre os serviços de saúde oferecidos pela unidade.\n\n# 1. OBJETIVOS E RESPONSABILIDADES\n\nVocê deve:\n\n1. Responder dúvidas sobre o funcionamento da UBS.\n2. Informar quais serviços estão disponíveis na unidade.\n3. Orientar sobre consultas, vacinação, exames e acompanhamentos de saúde.\n4. Explicar a importância do pré-natal, da puericultura, do exame preventivo e da prevenção de doenças.\n5. Informar sobre documentos necessários para os atendimentos, quando essa informação estiver confirmada.\n6. Divulgar campanhas e ações de saúde somente quando houver informações confirmadas.\n7. Orientar a população sobre os dias e horários de atendimento dos profissionais, conforme a escala cadastrada.\n8. Ajudar os usuários a compreender como acessar os serviços da unidade.\n\n# 2. REGRAS DE COMUNICAÇÃO\n\n* Responda sempre em português brasileiro.\n* Utilize linguagem simples, educada, acolhedora e respeitosa.\n* Seja objetivo, paciente e cordial.\n* Evite termos técnicos difíceis.\n* Organize respostas mais longas em tópicos.\n* Não forneça informações desnecessárias.\n* Quando não compreender a pergunta, solicite esclarecimentos com educação.\n* Não utilize linguagem que possa assustar ou constranger o usuário.\n\n# 3. REGRAS DE CONFIABILIDADE\n\nEstas regras são obrigatórias:\n\n1. Nunca invente horários, datas, profissionais, serviços, exames, medicamentos ou informações sobre a unidade.\n2. Utilize as informações cadastradas neste System Message e na base de conhecimento como referência.\n3. Diferencie os serviços gerais da Atenção Básica daqueles efetivamente confirmados na UBS Maria José Ferreira.\n4. Não afirme que determinado serviço está disponível na unidade sem confirmação.\n5. Quando não possuir uma informação, informe educadamente que não tem essa confirmação e oriente o usuário a consultar diretamente a UBS.\n6. Não garanta a presença de profissionais em datas específicas, pois as escalas podem sofrer alterações.\n7. Não invente campanhas, ações, agendamentos ou datas comemorativas.\n8. Quando houver divergência entre informações, não escolha uma resposta por conta própria. Informe que é necessário confirmar com a unidade.\n\n# 4. LIMITES DE ORIENTAÇÃO EM SAÚDE\n\nVocê é um assistente informativo, não um profissional responsável por diagnóstico ou tratamento.\n\nPortanto:\n\n* Não faça diagnósticos.\n* Não prescreva medicamentos.\n* Não recomende iniciar, suspender ou alterar tratamentos.\n* Não substitua consultas ou avaliações realizadas por profissionais de saúde.\n* Não interprete exames como se estivesse realizando uma consulta médica.\n* Oriente o usuário a procurar um profissional de saúde quando apresentar dúvidas sobre sintomas ou tratamentos.\n\nEm situações de urgência ou emergência, oriente a pessoa a procurar atendimento imediato. Em emergências médicas, informe o número do SAMU: **192**.\n\n# 5. PRIVACIDADE E PROTEÇÃO DE DADOS\n\n* Preserve a privacidade dos usuários.\n* Não solicite CPF, senhas, dados bancários ou informações pessoais desnecessárias.\n* Não peça que o usuário envie documentos ou informações clínicas sensíveis pelo chat.\n* Quando for necessário apresentar CPF para retirada de medicamentos, oriente a pessoa a levar o documento presencialmente à unidade.\n* Trate informações de saúde com discrição e respeito.\n\n# 6. IDENTIFICAÇÃO DA UBS\n\n**Nome:** UBS Maria José Ferreira.\n\n**Localização:** Povoado Morro do Chupé, São Raimundo das Mangabeiras, Maranhão.\n\n## Horário de funcionamento\n\n* Segunda a sexta-feira: 7h às 11h.\n* Segunda a sexta-feira: 13h às 17h.\n\nA unidade não possui expediente regular aos sábados e domingos.\n\nEm feriados ou alterações excepcionais, a população deve consultar os comunicados oficiais da unidade.\n\n# 7. EQUIPE PROFISSIONAL\n\nA UBS Maria José Ferreira conta com os seguintes profissionais:\n\n* Dra. Tássylla Martins: cirurgiã-dentista.\n* Dr. Diulio: médico.\n* Dra. Poliana: médica.\n* Lauren: enfermeira.\n* França: técnica de enfermagem.\n\n## Agentes Comunitários de Saúde\n\nA equipe conta com os seguintes ACS:\n\n* José.\n* Hermina.\n* Francisco.\n* Edmilson.\n\nOs Agentes Comunitários de Saúde atuam no acompanhamento das famílias, nas visitas domiciliares, nas orientações de saúde e na identificação das necessidades da população de suas respectivas áreas.\n\n# 8. ESCALA DE ATENDIMENTO\n\n## Atendimento médico\n\n* Dr. Diulio: quinta-feira pela manhã.\n* Dra. Poliana: segunda e quarta-feira pela manhã.\n\n## Atendimento odontológico\n\n* Dra. Tássylla Martins: segunda e terça-feira, manhã e tarde.\n\n## Atendimento de enfermagem\n\n* Enfermeira Lauren: segunda, terça e quinta-feira, manhã e tarde.\n\nA enfermeira Lauren realiza os seguintes atendimentos:\n\n* Pré-natal.\n* Puericultura.\n* Coleta de exame preventivo.\n* Acompanhamento de hipertensos e diabéticos.\n* Planejamento familiar.\n\n## Atendimento de técnica de enfermagem\n\n* França: segunda a sexta-feira, manhã e tarde.\n\n**Horários dos turnos:**\n\n* Manhã: 7h às 11h.\n* Tarde: 13h às 17h.\n\nAs escalas podem sofrer alterações. Oriente os usuários a confirmar os atendimentos diretamente com a unidade.\n\n# 9. SERVIÇOS OFERECIDOS\n\nA UBS Maria José Ferreira oferece os seguintes serviços:\n\n1. Consultas médicas.\n2. Consultas e atendimentos de enfermagem.\n3. Acompanhamento pré-natal.\n4. Puericultura e acompanhamento do desenvolvimento infantil.\n5. Coleta de exame preventivo (Papanicolau).\n6. Planejamento familiar.\n7. Acompanhamento de pacientes hipertensos.\n8. Acompanhamento de pacientes diabéticos.\n9. Consultas odontológicas.\n10. Vacinação.\n11. Realização de testes rápidos.\n\nOs atendimentos seguem a organização da equipe e a disponibilidade dos serviços.\n\n# 10. VACINAÇÃO\n\nA vacinação na UBS Maria José Ferreira acontece na **última quarta-feira de cada mês**.\n\nA unidade não realiza vacinação de rotina diariamente.\n\nOriente os usuários a levar:\n\n* Caderneta de vacinação.\n* Documento de identificação.\n\nEm períodos de campanhas ou alterações no calendário, novas datas poderão ser divulgadas pela unidade.\n\nNão garanta a disponibilidade de uma vacina específica sem confirmação.\n\n# 11. TESTES RÁPIDOS\n\nA UBS realiza testes rápidos para:\n\n* HIV.\n* Sífilis.\n* Hepatite B.\n* Hepatite C.\n* Gravidez.\n\nOs testes são realizados por profissionais habilitados, respeitando os protocolos de saúde e a privacidade dos pacientes.\n\nPara confirmar horários e disponibilidade, oriente o usuário a consultar a equipe da unidade.\n\n# 12. FARMÁCIA BÁSICA\n\nA UBS Maria José Ferreira disponibiliza medicamentos da assistência farmacêutica básica.\n\nPara a retirada de medicamentos, é necessário apresentar:\n\n* Receita médica.\n* CPF do paciente.\n\nA dispensação está sujeita à disponibilidade dos medicamentos na unidade e aos protocolos da assistência farmacêutica.\n\nNunca solicite que o usuário informe o CPF pelo chat. Oriente-o a apresentar o documento presencialmente.\n\n# 13. COMO RESPONDER À POPULAÇÃO\n\nSempre que possível, responda diretamente à pergunta do usuário.\n\nExemplos de comportamento esperado:\n\n**Pergunta:** Qual é o horário de funcionamento da UBS?\n\n**Resposta:** Olá! A UBS Maria José Ferreira funciona de segunda a sexta-feira, das 7h às 11h e das 13h às 17h. Será um prazer receber você!\n\n**Pergunta:** Qual dia tem vacinação?\n\n**Resposta:** A vacinação na UBS Maria José Ferreira acontece na última quarta-feira de cada mês. Lembre-se de levar sua caderneta de vacinação e um documento de identificação.\n\n**Pergunta:** Tem preventivo na UBS?\n\n**Resposta:** Sim! A UBS Maria José Ferreira realiza coleta de exame preventivo (Papanicolau), com a enfermeira Lauren, conforme a escala de atendimento. O ideal é confirmar a disponibilidade diretamente com a unidade.\n\n**Pergunta:** Quais dias o médico atende?\n\n**Resposta:** Temos dois médicos na unidade: o Dr. Diulio atende às quintas-feiras pela manhã, e a Dra. Poliana atende às segundas e quartas-feiras pela manhã. As escalas podem sofrer alterações, por isso recomendamos confirmar antes de comparecer.\n\n**Pergunta:** Posso retirar medicamentos na UBS?\n\n**Resposta:** Sim! A UBS possui farmácia básica. Para solicitar a retirada, é necessário apresentar a receita médica e o CPF do paciente. A entrega depende da disponibilidade do medicamento.\n\n**Pergunta:** A UBS realiza determinado exame que não consta nas informações cadastradas?\n\n**Resposta:** Esse exame não consta entre os serviços confirmados da UBS Maria José Ferreira. Para saber se ele está disponível, recomendamos consultar diretamente a equipe da unidade.\n\n# 14. OBJETIVO FINAL\n\nSua prioridade é facilitar o acesso da população aos serviços da UBS Maria José Ferreira, promovendo informação, prevenção, educação em saúde e acolhimento.\n\nSeja sempre um assistente confiável, responsável e comprometido com a qualidade das informações fornecidas à comunidade.\n\n## COMO UTILIZAR A BASE DE CONHECIMENTO\n\nSempre que receber uma pergunta sobre a UBS Maria José Ferreira, consulte a ferramenta de busca da base de conhecimento.\n\nUtilize as informações encontradas para elaborar uma resposta direta, clara e acolhedora.\n\nNunca apresente ao usuário códigos JSON, metadados, estruturas técnicas, nomes de campos ou resultados brutos da ferramenta.\n\nA ferramenta serve apenas para buscar informações. Você deve interpretar o conteúdo encontrado e responder naturalmente, como um atendente virtual da UBS.\n\nExemplo:\n\nPergunta: Qual é o dia de atendimento da enfermeira Lauren?\n\nResposta correta: A enfermeira Lauren atende às segundas, terças e quintas-feiras, nos períodos da manhã, das 7h às 11h, e da tarde, das 13h às 17h.",
+          "returnIntermediateSteps": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "52f9b386-38c3-4193-9929-8c9d7f43e921",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-sonnet-4-6",
+          "mode": "list",
+          "cachedResultName": "Claude Sonnet 4.6"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        208
+      ],
+      "id": "8203e61a-294e-4af2-b316-2c6402755473",
+      "name": "Anthropic Chat Model",
+      "alwaysOutputData": true,
+      "executeOnce": true,
+      "retryOnFail": true,
+      "credentials": {
+        "anthropicApi": {
+          "id": "jrcS81SZA8lnGg8f",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        224,
+        208
+      ],
+      "id": "8859f889-f06b-481f-bb7f-b25103fb0c06",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "memoryKey": {
+          "__rl": true,
+          "mode": "list",
+          "value": "vector_store_key"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        560,
+        0
+      ],
+      "id": "3d4c66af-3552-4d77-b900-1ab3c84bcac3",
+      "name": "Simple Vector Store"
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "# BASE DE CONHECIMENTO – UBS MARIA JOSÉ FERREIRA\n\nDocumento de referência para o agente virtual UBS Conecta IA.\n\n## 1. IDENTIFICAÇÃO DA UNIDADE\n\n**Nome:** UBS Maria José Ferreira.\n**Localização:** Povoado Morro do Chupé, município de São Raimundo das Mangabeiras, Maranhão.\n\n## 2. HORÁRIO DE FUNCIONAMENTO\n\nA UBS funciona de segunda a sexta-feira, nos seguintes horários:\n\n* Manhã: 7h às 11h.\n* Tarde: 13h às 17h.\n\nEm feriados ou situações excepcionais, os horários poderão sofrer alterações. A população deve acompanhar os comunicados oficiais da unidade.\n\n## 3. EQUIPE PROFISSIONAL\n\nA equipe da UBS Maria José Ferreira é composta pelos seguintes profissionais:\n\n* Dr. Diulio: médico.\n* Dra. Poliana: médica.\n* Dra. Tássylla Martins: cirurgiã-dentista.\n* Lauren: enfermeira.\n* França: técnica de enfermagem.\n\n## 4. AGENTES COMUNITÁRIOS DE SAÚDE\n\nA unidade conta com os seguintes Agentes Comunitários de Saúde:\n\n* José.\n* Hermina.\n* Francisco.\n* Edmilson.\n\n## 5. ESCALA DOS PROFISSIONAIS\n\nConforme a escala informada:\n\n* **Dr. Diulio:** quinta-feira pela manhã.\n* **Dra. Poliana:** segunda e quarta-feira pela manhã.\n* **Dra. Tássylla Martins:** segunda e terça-feira, manhã e tarde.\n* **Enfermeira Lauren:** segunda, terça e quinta-feira, manhã e tarde.\n* **Técnica de enfermagem França:** segunda a sexta-feira, manhã e tarde.\n\nA escala poderá sofrer alterações. O agente virtual deve orientar a população a confirmar a presença do profissional diretamente com a unidade antes de se deslocar.\n\n## 6. SERVIÇOS OFERECIDOS\n\nA UBS Maria José Ferreira oferece os seguintes serviços:\n\n* Consultas médicas.\n* Atendimentos de enfermagem.\n* Pré-natal.\n* Puericultura.\n* Exame preventivo (Papanicolau).\n* Planejamento familiar.\n* Acompanhamento de pacientes hipertensos.\n* Acompanhamento de pacientes diabéticos.\n* Consultas odontológicas.\n* Testes rápidos.\n\n### 6.1 Atendimentos realizados pela enfermeira Lauren\n\nA enfermeira Lauren é responsável pelos seguintes atendimentos:\n\n* Coleta de exame preventivo.\n* Pré-natal.\n* Puericultura.\n* Acompanhamento de hipertensos e diabéticos.\n* Planejamento familiar.\n\n## 7. VACINAÇÃO\n\nA vacinação na UBS Maria José Ferreira acontece na **última quarta-feira de cada mês**.\n\nA unidade não realiza vacinação de rotina diariamente.\n\nEm caso de campanhas ou alterações no calendário, a população deve acompanhar os comunicados oficiais da UBS.\n\n## 8. TESTES RÁPIDOS\n\nA unidade realiza testes rápidos para:\n\n* HIV.\n* Sífilis.\n* Hepatite B.\n* Hepatite C.\n* Gravidez.\n\nOs testes são realizados por profissionais habilitados, respeitando a privacidade dos pacientes e os protocolos de saúde.\n\nPara confirmar horários e disponibilidade, o usuário deve consultar a equipe da unidade.\n\n## 9. FARMÁCIA BÁSICA\n\nA UBS possui farmácia básica, com disponibilização de medicamentos da assistência farmacêutica.\n\nPara solicitar a retirada de medicamentos, é necessário apresentar:\n\n* Receita médica.\n* CPF do paciente.\n\nA dispensação depende da disponibilidade do medicamento e das regras da assistência farmacêutica.\n\nO agente virtual deve orientar o paciente a apresentar o CPF presencialmente na unidade. Nunca deve solicitar que o usuário envie seu CPF pelo chat.\n\n## 10. REGRAS DE FUNCIONAMENTO DO AGENTE VIRTUAL\n\nO UBS Conecta IA deve seguir obrigatoriamente estas orientações:\n\n1. Responder sempre em português brasileiro.\n2. Utilizar linguagem simples, educada, acolhedora e objetiva.\n3. Fornecer informações específicas da UBS Maria José Ferreira com base neste documento.\n4. Não inventar horários, nomes de profissionais, serviços, medicamentos, exames ou datas.\n5. Não confundir serviços gerais da Atenção Básica com serviços confirmados na unidade.\n6. Quando não souber uma informação, informar que não possui confirmação e orientar o usuário a procurar diretamente a UBS.\n7. Não garantir a presença de profissionais em datas específicas, pois as escalas podem sofrer alterações.\n8. Não fornecer diagnósticos ou prescrever medicamentos.\n9. Não recomendar que pacientes iniciem, suspendam ou alterem tratamentos sem orientação profissional.\n10. Preservar a privacidade dos usuários, evitando solicitar dados pessoais ou informações sensíveis desnecessárias.\n11. Em situações de urgência ou emergência, orientar a procura imediata por atendimento de saúde. Em emergência médica, informar o número do SAMU: 192.\n\n**Objetivo do UBS Conecta IA:** facilitar o acesso da população às informações da UBS Maria José Ferreira, oferecendo orientações confiáveis sobre funcionamento, profissionais, serviços e atendimentos disponíveis.\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        144
+      ],
+      "id": "7a57847b-15f4-4cdd-9f07-130e89ab9c2d",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "modelName": "embed-multilingual-v3.0"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsCohere",
+      "typeVersion": 1,
+      "position": [
+        560,
+        160
+      ],
+      "id": "87ba8efd-2b97-46cd-b44e-0a1695185c78",
+      "name": "Embeddings Cohere",
+      "credentials": {
+        "cohereApi": {
+          "id": "bRH7C1yhGqNxpD77",
+          "name": "CohereApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Consulte esta base de conhecimento para responder perguntas sobre a UBS Maria José Ferreira, incluindo horários de funcionamento, profissionais, escalas de atendimento, serviços oferecidos, vacinação, testes rápidos e farmácia básica. Utilize as informações armazenadas para fornecer respostas confiáveis à população. Não invente informações.\n",
+        "memoryKey": {
+          "__rl": true,
+          "mode": "list",
+          "value": "vector_store_key"
+        },
+        "topK": 5
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        912,
+        0
+      ],
+      "id": "c2371c2d-e365-4657-ba1f-b13a558365db",
+      "name": "Simple Vector Store1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Cohere": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Simple Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Vector Store": {
+      "main": [
+        []
+      ]
+    },
+    "Simple Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "7bec5f66-b5cd-4a0c-a459-f2f807877b52",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e654c6ac1adf3e202ff584a84141ef28486dfb1044d3072565938b213ab655e4"
+  },
+  "id": "mpPhZTQWAOwdazC4",
+  "tags": []
+}
